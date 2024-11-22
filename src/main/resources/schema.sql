@@ -1,10 +1,10 @@
-CREATE TABLE tbl_categories (
-                                id BIGINT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS tbl_categories (
+                                id BIGSERIAL PRIMARY KEY,
                                 name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE tbl_products (
-                              id BIGINT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS tbl_products (
+                              id BIGSERIAL PRIMARY KEY,
                               name VARCHAR(255) NOT NULL,
                               description VARCHAR(255),
                               stock INT NOT NULL,

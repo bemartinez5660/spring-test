@@ -23,10 +23,11 @@ public class ProductRepositoryMockTest {
     private CategoryRepository categoryRepository;
 
     @Test
-    public void findByCategory_thenReturnProductList(){
+    @Sql(scripts = "/data.sql")
+    public void findByCategory_thenReturnProductList() {
 
 //        Category category = Category.builder().name("test").build();
-//        categoryRepository.save(category);
+//         categoryRepository.save(category);
         Category category = categoryRepository.findById(1L);
 
         Product product = Product.builder()
@@ -40,9 +41,10 @@ public class ProductRepositoryMockTest {
                 .build();
 
         productRepository.save(product);
+        List<Category> categorias = categoryRepository.findAll();
 
         List<Product> productList = productRepository.findByCategory(product.getCategory());
 
-        Assertions.assertThat(productList.size()).isEqualTo(1);
+        Assertions.assertThat(productList.size()).isEqualTo(3);
     }
 }
