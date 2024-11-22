@@ -25,12 +25,13 @@ public class ProductRepositoryMockTest {
     @Test
     public void findByCategory_thenReturnProductList(){
 
-//        Category category = Category.builder().id(4L).name("test").build();
+//        Category category = Category.builder().name("test").build();
 //        categoryRepository.save(category);
+        Category category = categoryRepository.findById(1L);
 
         Product product = Product.builder()
                 .name("computer")
-                .category(Category.builder().name("test").build())
+                .category(category)
                 .description("")
                 .stock(2)
                 .price(10.55)
